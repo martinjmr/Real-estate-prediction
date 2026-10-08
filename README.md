@@ -2,7 +2,7 @@
 
 With my team, I predicted the listed price of French properties from listing data, location and photos. Team project for a course of the IASO bachelor's programme (Université Paris Dauphine-PSL, May 2025), on a Challenge Data competition.
 
-**On the challenge's test set, our best submission reaches a mean absolute percentage error (MAPE) of 27.1%, against 36.8% for the organisers' XGBoost benchmark: 20th of 220 entries on the public leaderboard. On the private leaderboard, which gives the final ranking, it scores 28.1% (34th of 219).**
+**On the private leaderboard, which gives the challenge's final ranking, our best submission reaches a mean absolute percentage error (MAPE) of 28.1%, against 35.6% for the organisers' XGBoost benchmark: 34th of 219 entries.**
 
 ## Data
 
@@ -22,11 +22,10 @@ The challenge data is not included; the notebook expects it in `data/`.
 
 ## Results
 
-**Challenge leaderboard** ([Challenge Data](https://challengedata.ens.fr/challenges/68), Institut Louis Bachelier). The test set is split into a public part, scored after each submission, and a private part, which gives the final ranking.
+**Challenge leaderboard** ([Challenge Data](https://challengedata.ens.fr/challenges/68), Institut Louis Bachelier). The final ranking is computed on the private part of the test set.
 
 | Test set | Our MAPE | Benchmark MAPE | Rank |
 |---|---|---|---|
-| Public | 27.1% | 36.8% | 20th of 220 |
 | Private (final) | 28.1% | 35.6% | 34th of 219 |
 
 **Validation during the project.** The models predict log(1 + price). The table gives the mean absolute error (MAE) on that scale, as printed in the notebook. An MAE of 0.239 means that the prediction and the true price differ by a factor of about e^0.239 ≈ 1.27, as a geometric mean over the listings.
