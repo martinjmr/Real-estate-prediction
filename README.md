@@ -2,7 +2,7 @@
 
 With my team, I predicted the listed price of French properties from listing data, location and photos. Team project for a course of the L3 IASO program (Université Paris Dauphine-PSL), **ranked 1st in the cohort**.
 
-**Our best model, a tuned XGBoost, reaches 22.9% MAPE against 52.5% for a linear-regression baseline.**
+**Our best model, a tuned XGBoost, more than halves the error of a linear-regression baseline: mean absolute error of 0.239 on the log of the price, against 0.525.**
 
 ## Data
 
@@ -20,14 +20,18 @@ The course data is not included; the notebook expects it in `data/`.
 4. **Photos**: two simple statistics per listing, mean brightness and entropy (OpenCV, scikit-image).
 5. **Models**: we compared linear regression as a baseline, random forest, and XGBoost tuned with RandomizedSearchCV in two stages (a wide search, then a narrow one around the best parameters), with K-fold cross-validation.
 
-## Results (cross-validated MAPE)
+## Results
 
-| Model | MAPE |
-|---|---|
-| Linear regression | 52.5% |
-| Random forest | 29.6% |
-| XGBoost | 25.8% |
-| XGBoost, tuned | **22.9%** |
+The models predict log(1 + price). The table gives the mean absolute error (MAE) on that scale, as printed in the notebook. An MAE of 0.239 means that the prediction and the true price differ by a factor of about e^0.239 ≈ 1.27, as a geometric mean over the listings.
+
+| Model | Validation | MAE on log(1 + price) |
+|---|---|---|
+| Linear regression | 30% hold-out | 0.525 |
+| Random forest | 20% hold-out | 0.296 |
+| XGBoost, first random search | 5-fold cross-validation | 0.257 |
+| XGBoost, refined random search | 5-fold cross-validation | **0.239** |
+
+Section 10 of the notebook computes the MAPE on prices, but its output was not saved.
 
 ## Next steps
 
