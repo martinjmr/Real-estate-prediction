@@ -1,6 +1,6 @@
 # Real Estate Price Prediction
 
-With my team, I predicted the listed price of French properties from listing data, location and photos. Team project for a course of the L3 IASO program (Université Paris Dauphine-PSL), **ranked 1st in the cohort**.
+With my team, I predicted the listed price of French properties from listing data, location and photos. Team project for a course of the L3 IASO program (Université Paris Dauphine-PSL), on a Challenge Data competition.
 
 **On the challenge's test set, our best submission reaches a mean absolute percentage error (MAPE) of 27.1%, against 36.8% for the organisers' XGBoost benchmark: 20th of 220 entries on the public leaderboard.**
 
