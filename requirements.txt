@@ -13,3 +13,4 @@ scikit-image
 pillow
 unidecode
 jupyter
+openpyxl
