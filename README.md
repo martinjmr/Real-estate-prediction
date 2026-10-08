@@ -1,8 +1,8 @@
 # Real Estate Price Prediction
 
-Predicting the listed price of French properties from listing data, location and photos. Course project in the L3 IASO program (Université Paris Dauphine-PSL), **ranked 1st in the cohort**.
+With my team, I predicted the listed price of French properties from listing data, location and photos. Team project for a course of the L3 IASO program (Université Paris Dauphine-PSL), **ranked 1st in the cohort**.
 
-**Best model: tuned XGBoost, 22.9% MAPE against 52.5% for a linear-regression baseline.**
+**Our best model, a tuned XGBoost, reaches 22.9% MAPE against 52.5% for a linear-regression baseline.**
 
 ## Data
 
@@ -14,11 +14,11 @@ The course data is not included; the notebook expects it in `data/`.
 
 ## Approach
 
-1. **Preprocessing**: merging, median imputation (an IterativeImputer based on random forests was also tested, without significant gain), frequency encoding for the city, one-hot encoding for property type and exposure.
+1. **Preprocessing**: merging, median imputation (we also tested an IterativeImputer based on random forests, without significant gain), frequency encoding for the city, one-hot encoding for property type and exposure.
 2. **Feature engineering**: log of price and size, room density, outdoor-comfort score, total size, RobustScaler.
 3. **Location**: K-means with 40 clusters on coordinates and price per m² to define market zones, ranked from cheapest to most expensive; test listings assigned to a zone by nearest neighbours; distance to the nearest point of interest (BallTree, haversine) and to the nearest of France's ten largest cities; DVF and INSEE indicators by municipality.
 4. **Photos**: two simple statistics per listing, mean brightness and entropy (OpenCV, scikit-image).
-5. **Models**: linear regression as a baseline, random forest, and XGBoost tuned with RandomizedSearchCV in two stages (a wide search, then a narrow one around the best parameters), with K-fold cross-validation.
+5. **Models**: we compared linear regression as a baseline, random forest, and XGBoost tuned with RandomizedSearchCV in two stages (a wide search, then a narrow one around the best parameters), with K-fold cross-validation.
 
 ## Results (cross-validated MAPE)
 
