@@ -2,7 +2,7 @@
 
 With my team, I predicted the listed price of French properties from listing data, location and photos. Team project for a course of the L3 IASO program (Université Paris Dauphine-PSL), **ranked 1st in the cohort**.
 
-**Our best model, a tuned XGBoost, more than halves the error of a linear-regression baseline: mean absolute error of 0.239 on the log of the price, against 0.525.**
+**On the challenge's test set, our best submission reaches a mean absolute percentage error (MAPE) of 27.1%, against 36.8% for the organisers' XGBoost benchmark: 20th of 220 entries on the public leaderboard.**
 
 ## Data
 
@@ -22,7 +22,14 @@ The course data is not included; the notebook expects it in `data/`.
 
 ## Results
 
-The models predict log(1 + price). The table gives the mean absolute error (MAE) on that scale, as printed in the notebook. An MAE of 0.239 means that the prediction and the true price differ by a factor of about e^0.239 ≈ 1.27, as a geometric mean over the listings.
+**Challenge leaderboard** ([Challenge Data](https://challengedata.ens.fr/challenges/68), Institut Louis Bachelier). The test set is split into a public part, scored after each submission, and a private part, which gives the final ranking.
+
+| Test set | Our MAPE | Benchmark MAPE | Rank |
+|---|---|---|---|
+| Public | 27.1% | 36.8% | 20th of 220 |
+| Private (final) | 28.1% | 35.6% | 34th of 219 |
+
+**Validation during the project.** The models predict log(1 + price). The table gives the mean absolute error (MAE) on that scale, as printed in the notebook. An MAE of 0.239 means that the prediction and the true price differ by a factor of about e^0.239 ≈ 1.27, as a geometric mean over the listings.
 
 | Model | Validation | MAE on log(1 + price) |
 |---|---|---|
@@ -31,7 +38,7 @@ The models predict log(1 + price). The table gives the mean absolute error (MAE)
 | XGBoost, first random search | 5-fold cross-validation | 0.257 |
 | XGBoost, refined random search | 5-fold cross-validation | **0.239** |
 
-Section 10 of the notebook computes the MAPE on prices, but its output was not saved.
+Section 10 of the notebook computes the MAPE on prices for the validation split, but its output was not saved; the leaderboard above gives the MAPE on the test set.
 
 ## Next steps
 
