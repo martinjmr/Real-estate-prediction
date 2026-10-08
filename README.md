@@ -39,7 +39,7 @@ The challenge data is not included; the notebook expects it in `data/`.
 | XGBoost, narrower searches | 5-fold cross-validation | 0.244 |
 | XGBoost, narrower searches, after IterativeImputer | 5-fold cross-validation | **0.239** |
 
-Section 12 of the notebook computes a cross-validated MAPE on prices, but its output was not saved; the leaderboard above gives the MAPE on the test set.
+Section 12 of the notebook tunes XGBoost on MAPE, but computes it on log(1 + price) instead of prices, and its outputs were not saved; the leaderboard above gives the MAPE on prices.
 
 ## Limits
 
